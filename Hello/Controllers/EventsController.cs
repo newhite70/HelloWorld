@@ -8,7 +8,7 @@ namespace Hello.Controllers
 {
     public class EventsController : Controller
     {
-        static private List<string> Events = new List<string>();
+        static private Dictionary<string, string> Events = new Dictionary<string, string>();
         //GET: /<controller>/
         [HttpGet]
         public IActionResult Index()
@@ -17,7 +17,7 @@ namespace Hello.Controllers
             //Events.Add("E3");
             //Events.Add("Unreal");
             //Events.Add("Work");
-            ViewBag.events = Events;
+            ViewBag.Events = Events;
 
             return View();
         }
@@ -30,9 +30,9 @@ namespace Hello.Controllers
 
         [HttpPost]
         [Route("/Events/Add")]
-        public IActionResult NewEvent(string name)
+        public IActionResult NewEvent(KeyValuePair<string, string> meeting)
         {
-            Events.Add(name);
+            Events.Add(meeting.Key, meeting.Value);
             return Redirect("/Events");
         }
     }

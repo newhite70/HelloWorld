@@ -8,9 +8,11 @@
     <p>No Events Yet!</p>
 }
 
-    <ul>@foreach (string meeting in ViewBag.Events)
+    <ul>@foreach (KeyValuePair meeting in ViewBag.Events)
     {
+        
     <li>@meeting</li>
+        
     }
     </ul>
 
