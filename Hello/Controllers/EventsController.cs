@@ -30,9 +30,9 @@ namespace Hello.Controllers
 
         [HttpPost]
         [Route("/Events/Add")]
-        public IActionResult NewEvent(KeyValuePair<string, string> meeting)
+        public IActionResult NewEvent(string name, string desc)
         {
-            Events.Add(meeting.Key, meeting.Value);
+            Events.Add(name, desc);
             return Redirect("/Events");
         }
     }
