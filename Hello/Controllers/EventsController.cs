@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Hello.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Hello.Controllers
 {
     public class EventsController : Controller
     {
-        static private Dictionary<string, string> Events = new Dictionary<string, string>();
+        static private List<Event> Events = new List<Event>();
         //GET: /<controller>/
         [HttpGet]
         public IActionResult Index()
@@ -30,9 +31,9 @@ namespace Hello.Controllers
 
         [HttpPost]
         [Route("/Events/Add")]
-        public IActionResult NewEvent(string name, string desc)
+        public IActionResult NewEvent(string name)
         {
-            Events.Add(name, desc);
+            Events.Add(new Event(name));
             return Redirect("/Events");
         }
     }
