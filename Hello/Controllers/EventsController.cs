@@ -57,7 +57,7 @@ namespace Hello.Controllers
         {
             //ViewBag.title = "Edit Event $"EventData.GetById(eventID).Name(id = EventData.GetById(eventID).ID);
             ViewBag.eventToEdit = EventData.GetById(eventId);
-            return Redirect("/Edit");
+            return Redirect($"/Events/Edit/{eventId}");
         }
 
         [HttpPost]
