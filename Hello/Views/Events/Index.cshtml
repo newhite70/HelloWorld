@@ -3,6 +3,12 @@
 <p>
     <a asp-controller="Events" asp-action="Add">Add Event</a>
 </p>
+<p>
+    <a asp-controller="Events" asp-action="Delete">Delete Event</a>
+</p>
+<p>
+    <a asp-controller="Events" asp-action="Edit">Edit Event</a>
+</p>
 @if (ViewBag.Events.Count == 0)
 {
     <p>No Events Yet!</p>
@@ -13,6 +19,9 @@ else
     <table class="table">
         <tr>
             <th>
+                ID
+            </th>
+            <th>
                 Name
             </th>
             <th>
@@ -21,10 +30,12 @@ else
         </tr>
         @foreach (var evt in ViewBag.events)
         {
-            <tr>
-                <td>@evt.Name</td>
-                
-            </tr>
+    <tr>
+        <td>@evt.ID</td>
+        <td>@evt.Name</td>
+        <td>@evt.Description</td>
+
+    </tr>
         }
     </table>
 }
